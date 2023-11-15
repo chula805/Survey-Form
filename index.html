@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <title>Survey Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ECF0F3;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            background: linear-gradient(145deg, #e2e8ec, #ffffff);
+             box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 100px; 
+            height: auto;
+        }
+        h1 {
+            margin: 0;
+            background-image: linear-gradient(145deg, #ef745c, #34073d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; 
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea {
+            width: 96%;
+            padding: 10px;
+            margin-bottom: 20px;
+            color: #6e6969;
+            background: transparent;
+            border: 1px solid #b4b4b4;
+            border-radius: 5px;
+        }
+        select{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            background: transparent;
+            border: 1px solid #b4b4b4;
+            border-radius: 5px;
+        }
+        .submitbtn {
+            background: linear-gradient(145deg, #ff014f, #d11414);
+            color: #fff;
+            padding: 10px 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .submitbtn:hover {
+            background: linear-gradient(145deg, #d11414, #ff014f);
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .pnbtn1{
+            background: linear-gradient(145deg, #00ff87, #60efff);
+            color: #000000;
+            padding: 10px 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pnbtn1:hover{
+            background: linear-gradient(145deg, #60efff, #00ff87);
+        }
+
+        .pnbtn2{
+            background: linear-gradient(145deg, #0061ff, #60efff);
+            color: #000000;
+            padding: 10px 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .pnbtn2:hover{
+            background: linear-gradient(145deg, #60efff, #0061ff);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Company Logo" class="logo">
+            <h1>Virtual Biz</h1>
+        </div>
+        <form action="submit_survey.php" method="post">
+
+            <div class="page" id="page1">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+
+            <div class="page" id="page2">
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="primaryReason">What is your primary reason for interacting with our organization today?</label>
+                <select id="primaryReason" name="primaryReason">
+                    <option value="Customer support">Customer support</option>
+                    <option value="Product purchase">Product purchase</option>
+                    <option value="Inquiry">Inquiry</option>
+                    <option value="Other">Other (please specify)</option>
+                </select>
+
+                <label for="satisfaction">How satisfied are you with our product/service?</label>
+                <select id="satisfaction" name="satisfaction">
+                    <option value="Very satisfied">Very satisfied</option>
+                    <option value="Satisfied">Satisfied</option>
+                    <option value="Neutral">Neutral</option>
+                    <option value="Dissatisfied">Dissatisfied</option>
+                    <option value="Very dissatisfied">Very dissatisfied</option>
+                </select>
+
+                <label for="recommendationLikelihood">On a scale of 1 to 10, how likely are you to recommend our company to a friend or colleague?</label>
+                <input type="number" id="recommendationLikelihood" name="recommendationLikelihood" min="1" max="10" required>
+
+                <label for="productServiceUsage">How often do you use our products/services?</label>
+                <select id="productServiceUsage" name="productServiceUsage">
+                    <option value="Daily">Daily</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Rarely">Rarely</option>
+                    <option value="Never">Never</option>
+                </select>
+            </div>
+
+            <div class="page" id="page3">
+                <label for="likesMost">What do you like most about our products/services?</label>
+                <textarea id="likesMost" name="likesMost" rows="4"></textarea>
+
+                <label for="areasToImprove">What areas do you believe we could improve upon?</label>
+                <textarea id="areasToImprove" name="areasToImprove" rows="4"></textarea>
+
+                <label for="customerServiceQuality">How would you rate the quality of our customer service?</label>
+                <select id="customerServiceQuality" name="customerServiceQuality">
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Poor">Poor</option>
+                    <option value="Needs improvement">Needs improvement</option>
+                </select>
+
+                <label for="recentUpdatesAwareness">Are you aware of our recent product/service updates or enhancements?</label>
+                <select id="recentUpdatesAwareness" name="recentUpdatesAwareness">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label for="physicalLocationFrequency">How often do you visit our physical locations (if applicable)?</label>
+                <select id="physicalLocationFrequency" name="physicalLocationFrequency">
+                    <option value="Daily">Daily</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Rarely">Rarely</option>
+                    <option value="Never">Never</option>
+                </select>
+            </div>
+
+            <div class="page" id="page4">
+                <label for="cleanlinessRating">Please rate the cleanliness and organization of our physical locations.</label>
+                <select id="cleanlinessRating" name="cleanlinessRating">
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Poor">Poor</option>
+                    <option value="Needs improvement">Needs improvement</option>
+                </select>
+
+                <label for="marketingChannels">Which of our marketing channels do you find most effective in staying informed about our products/services?</label>
+                <select id="marketingChannels" name="marketingChannels">
+                    <option value="Email">Email</option>
+                    <option value="Social media">Social media</option>
+                    <option value="Website">Website</option>
+                    <option value="Print media">Print media</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="websiteNavigationEase">How would you rate the ease of navigation on our website (if applicable)?</label>
+                <select id="websiteNavigationEase" name="websiteNavigationEase">
+                    <option value="Very easy">Very easy</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Neutral">Neutral</option>
+                    <option value="Difficult">Difficult</option>
+                    <option value="Very difficult">Very difficult</option>
+                </select>
+
+                <label for="technicalIssuesEncountered">Have you ever encountered any technical issues when using our digital services?</label>
+                <select id="technicalIssuesEncountered" name="technicalIssuesEncountered">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label for="pricingSatisfaction">How satisfied are you with our pricing?</label>
+                <select id="pricingSatisfaction" name="pricingSatisfaction">
+                    <option value="Very satisfied">Very satisfied</option>
+                    <option value="Satisfied">Satisfied</option>
+                    <option value="Neutral">Neutral</option>
+                    <option value="Dissatisfied">Dissatisfied</option>
+                    <option value="Very dissatisfied">Very dissatisfied</option>
+                </select>
+            </div>
+            <div class="buttons">
+                <button type="button" class="pnbtn1" id="prevButton" onclick="showPage(-1)">Previous</button>
+                <button type="button" class="pnbtn2" id="nextButton" onclick="showPage(1)">Next</button>
+                <button type="button" class="submitbtn" id="submitButton" onclick="submitForm()" style="display: none">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const pages = document.querySelectorAll('.page');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        const submitButton = document.getElementById('submitButton');
+
+        function showPage(pageIncrement) {
+            pages[currentPage - 1].classList.remove('active');
+            currentPage += pageIncrement;
+            pages[currentPage - 1].classList.add('active');
+
+            prevButton.disabled = currentPage === 1;
+            nextButton.disabled = currentPage === pages.length;
+            submitButton.style.display = currentPage === pages.length ? 'block' : 'none';
+        }
+
+        function submitForm() {
+            document.getElementById('surveyForm').submit();
+        }
+
+        showPage(0);
+    </script>
+</body>
+</html>
